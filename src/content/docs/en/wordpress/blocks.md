@@ -19,6 +19,8 @@ You can choose cards or a list, the number of events per page, and the order. Yo
 
 Only published events that haven't ended appear. Events without dates and password-protected events don't appear.
 
+Events are ordered by the date shown on their card: the next date that hasn't ended or, when you filter by period, the first date within it. With a period filter, an event appears only if one of its dates falls within the period.
+
 The following two are preconfigured versions of the Event List block, and they appear under their own names in the block inserter.
 
 | Name | What it shows |
@@ -28,7 +30,7 @@ The following two are preconfigured versions of the Event List block, and they a
 
 ### Event Search
 
-Keywords match event titles, body text, and venue names. Search conditions go into the page URL, so you can share the URL as is.
+Keywords match event titles, body text, and venue names. Search conditions go into the page URL, so you can share the URL as is and use the browser's back button. Results replace the old ones without reloading the page. The search also works without JavaScript.
 
 ### Past Events
 

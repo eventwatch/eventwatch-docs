@@ -47,7 +47,7 @@ Once you close the screen, this key can never be displayed again. Paste it into 
 3. Save your changes.
 4. Select **Check connection**.
 
-When your organization's name appears after "Connected to EventWatch", you're ready. If the name is a different organization, you've mixed up keys.
+When your organization's name appears after "Connected to EventWatch", you're ready. If the name is a different organization, you've mixed up keys. Saved keys are hidden and can't be read back on this screen.
 
 By saving a key, you agree to the EventWatch [Terms of Service](https://eventwatch.app/en/terms) and Posting Guidelines.
 

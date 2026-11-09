@@ -27,6 +27,8 @@ Pages are displayed in the following order.
 10. Add to calendar, Save, and Share buttons (Save appears when the event is listed on EventWatch and has upcoming dates)
 11. Link to the official page (when a **Separate official page** is entered)
 
+Password-protected events show only the title and the password form until the visitor enters the password.
+
 ## Rearrange in the Site Editor
 
 With block themes, you can change the order in the Site Editor.

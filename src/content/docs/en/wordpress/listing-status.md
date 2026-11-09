@@ -30,7 +30,9 @@ On **Your events** on EventWatch, the same statuses appear under the following n
 
 ## Status updates
 
-The plugin reads the status from EventWatch when you open the edit screen, and for up to 30 events about once an hour. On sites with many events, it takes time to go through all of them. To see the latest status, open the edit screen. The same event is read at most once a minute, so if you just opened it, wait about a minute and open it again.
+The plugin reads the status from EventWatch when you open the edit screen, and for up to 30 events about once an hour, oldest check first. On sites with many events, it takes time to go through all of them. To see the latest status, open the edit screen. The same event is read at most once a minute, so if you just opened it, wait about a minute and open it again. Nothing is read while [a change to your site URL](/en/wordpress/site-url) is unconfirmed.
+
+The **Save** button on event pages uses the status stored on your site, so on sites with a page cache it can take time to change. The button doesn't appear while a change to your site URL is unconfirmed.
 
 We don't give an estimate of how long review takes. Review isn't automatic, so it can take time before an event is published.
 
