@@ -1,0 +1,1177 @@
+{
+  "components" : {
+    "schemas" : {
+      "CreateOwnedEventRequest" : {
+        "properties" : {
+          "category" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "closeAt" : {
+            "type" : "string"
+          },
+          "description" : {
+            "maxLength" : 10000,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "holdingPeriodNote" : {
+            "maxLength" : 200,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "imageUploadId" : {
+            "maxLength" : 36,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "latitude" : {
+            "format" : "double",
+            "maximum" : 90.0,
+            "minimum" : -90.0,
+            "type" : [ "number", "null" ]
+          },
+          "longitude" : {
+            "format" : "double",
+            "maximum" : 180.0,
+            "minimum" : -180.0,
+            "type" : [ "number", "null" ]
+          },
+          "occurrenceRanges" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OwnedEventOccurrenceRangeRequest"
+            },
+            "maxItems" : 100,
+            "minItems" : 1,
+            "type" : [ "array", "null" ]
+          },
+          "online" : {
+            "type" : "boolean"
+          },
+          "placeId" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "pattern" : "^$|^[A-Za-z0-9_-]+$",
+            "type" : [ "string", "null" ]
+          },
+          "prefectureCode" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "publisherEventPageUrl" : {
+            "maxLength" : 1024,
+            "minLength" : 0,
+            "pattern" : "^$|^https?://\\S+$",
+            "type" : [ "string", "null" ]
+          },
+          "startAt" : {
+            "type" : "string"
+          },
+          "tagIds" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 10,
+            "minItems" : 0,
+            "type" : "array"
+          },
+          "title" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "venueAddress" : {
+            "maxLength" : 512,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "venueId" : {
+            "type" : [ "string", "null" ]
+          },
+          "venueName" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "zoneId" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "category", "closeAt", "description", "online", "prefectureCode", "startAt", "tagIds", "title", "venueAddress", "venueName", "zoneId" ],
+        "type" : "object"
+      },
+      "EventOccurrenceRangeDTO" : {
+        "properties" : {
+          "closeAt" : {
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "startAt" : {
+            "minLength" : 1,
+            "type" : "string"
+          }
+        },
+        "required" : [ "closeAt", "startAt" ],
+        "type" : "object"
+      },
+      "ImageDTO" : {
+        "properties" : {
+          "fileName" : {
+            "type" : "string"
+          },
+          "height" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "publicUrl" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string"
+          },
+          "width" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        },
+        "required" : [ "fileName", "height", "publicUrl", "type", "width" ],
+        "type" : "object"
+      },
+      "ImageDTOList" : {
+        "properties" : {
+          "baseURI" : {
+            "type" : [ "string", "null" ]
+          },
+          "list" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ImageDTO"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "savedImages" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ImageDTO"
+            },
+            "type" : "array",
+            "writeOnly" : true
+          }
+        },
+        "required" : [ "list", "message" ],
+        "type" : "object"
+      },
+      "ImageDTOWrapper" : {
+        "properties" : {
+          "ogp" : {
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/OgpImage"
+            }, {
+              "type" : "null"
+            } ]
+          },
+          "thumbnail" : {
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/ImageDTOList"
+            }, {
+              "type" : "null"
+            } ]
+          }
+        },
+        "type" : "object"
+      },
+      "ImageUploadDTO" : {
+        "properties" : {
+          "createdAt" : {
+            "format" : "date-time",
+            "type" : [ "string", "null" ]
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "images" : {
+            "$ref" : "#/components/schemas/ImageDTOWrapper"
+          },
+          "purpose" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "id", "images", "purpose" ],
+        "type" : "object"
+      },
+      "LinkOwnedEventRequest" : {
+        "properties" : {
+          "adminUrl" : {
+            "maxLength" : 1024,
+            "minLength" : 0,
+            "pattern" : "^https?://\\S+$",
+            "type" : [ "string", "null" ]
+          },
+          "eventId" : {
+            "maxLength" : 36,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "siteUrl" : {
+            "maxLength" : 1024,
+            "minLength" : 0,
+            "pattern" : "^https?://\\S+$",
+            "type" : [ "string", "null" ]
+          }
+        },
+        "required" : [ "eventId" ],
+        "type" : "object"
+      },
+      "OgpImage" : {
+        "properties" : {
+          "sourceUrl" : {
+            "type" : [ "string", "null" ]
+          }
+        },
+        "type" : "object"
+      },
+      "OrgApiEventSyncResultDTO" : {
+        "properties" : {
+          "applied" : {
+            "type" : "boolean"
+          },
+          "event" : {
+            "$ref" : "#/components/schemas/OwnedEventDTO"
+          }
+        },
+        "required" : [ "applied", "event" ],
+        "type" : "object"
+      },
+      "OrgApiOrganizationDTO" : {
+        "properties" : {
+          "displayName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "scope" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "displayName", "id", "scope" ],
+        "type" : "object"
+      },
+      "OwnedEventDTO" : {
+        "properties" : {
+          "authoringSource" : {
+            "type" : [ "string", "null" ]
+          },
+          "category" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "closeAt" : {
+            "type" : "string"
+          },
+          "createdAt" : {
+            "format" : "date-time",
+            "type" : [ "string", "null" ]
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "detachedAt" : {
+            "format" : "date-time",
+            "type" : [ "string", "null" ]
+          },
+          "externalAdminUrl" : {
+            "type" : [ "string", "null" ]
+          },
+          "externalId" : {
+            "type" : [ "string", "null" ]
+          },
+          "externalSiteId" : {
+            "type" : [ "string", "null" ]
+          },
+          "externalSiteUrl" : {
+            "type" : [ "string", "null" ]
+          },
+          "externalSource" : {
+            "type" : [ "string", "null" ]
+          },
+          "externalUpdatedAt" : {
+            "format" : "date-time",
+            "type" : [ "string", "null" ]
+          },
+          "holdingPeriodNote" : {
+            "type" : [ "string", "null" ]
+          },
+          "id" : {
+            "type" : [ "string", "null" ]
+          },
+          "imageUploadId" : {
+            "type" : [ "string", "null" ]
+          },
+          "latitude" : {
+            "format" : "double",
+            "type" : [ "number", "null" ]
+          },
+          "longitude" : {
+            "format" : "double",
+            "type" : [ "number", "null" ]
+          },
+          "occurrenceRanges" : {
+            "items" : {
+              "$ref" : "#/components/schemas/EventOccurrenceRangeDTO"
+            },
+            "type" : "array"
+          },
+          "online" : {
+            "type" : "boolean"
+          },
+          "organizationId" : {
+            "type" : [ "string", "null" ]
+          },
+          "placeId" : {
+            "type" : [ "string", "null" ]
+          },
+          "prefectureCode" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "publisherEventPageUrl" : {
+            "type" : [ "string", "null" ]
+          },
+          "rejectionReason" : {
+            "type" : [ "string", "null" ]
+          },
+          "slug" : {
+            "type" : "string"
+          },
+          "startAt" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "submittedAt" : {
+            "format" : "date-time",
+            "type" : [ "string", "null" ]
+          },
+          "suspendedByOperator" : {
+            "type" : "boolean"
+          },
+          "tags" : {
+            "$ref" : "#/components/schemas/TagVOWrapper"
+          },
+          "thumbnails" : {
+            "$ref" : "#/components/schemas/ImageDTOWrapper"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "updatedAt" : {
+            "format" : "date-time",
+            "type" : [ "string", "null" ]
+          },
+          "venueAddress" : {
+            "type" : [ "string", "null" ]
+          },
+          "venueId" : {
+            "type" : [ "string", "null" ]
+          },
+          "venueName" : {
+            "type" : [ "string", "null" ]
+          },
+          "visible" : {
+            "type" : "boolean"
+          },
+          "zoneId" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "category", "closeAt", "description", "occurrenceRanges", "online", "prefectureCode", "slug", "startAt", "status", "suspendedByOperator", "tags", "thumbnails", "title", "visible", "zoneId" ],
+        "type" : "object"
+      },
+      "OwnedEventOccurrenceRangeRequest" : {
+        "properties" : {
+          "closeAt" : {
+            "type" : "string"
+          },
+          "startAt" : {
+            "minLength" : 1,
+            "type" : "string"
+          }
+        },
+        "required" : [ "closeAt", "startAt" ],
+        "type" : "object"
+      },
+      "OwnedEventsDTO" : {
+        "properties" : {
+          "list" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OwnedEventDTO"
+            },
+            "type" : "array"
+          },
+          "total" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        },
+        "required" : [ "list", "total" ],
+        "type" : "object"
+      },
+      "SyncOwnedEventRequest" : {
+        "properties" : {
+          "adminUrl" : {
+            "maxLength" : 1024,
+            "minLength" : 0,
+            "pattern" : "^https?://\\S+$",
+            "type" : [ "string", "null" ]
+          },
+          "category" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "description" : {
+            "maxLength" : 10000,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "holdingPeriodNote" : {
+            "maxLength" : 200,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "imageUploadId" : {
+            "maxLength" : 36,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "occurrenceRanges" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OwnedEventOccurrenceRangeRequest"
+            },
+            "maxItems" : 100,
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "online" : {
+            "type" : "boolean"
+          },
+          "prefectureCode" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "publisherEventPageUrl" : {
+            "maxLength" : 1024,
+            "minLength" : 0,
+            "pattern" : "^$|^https?://\\S+$",
+            "type" : [ "string", "null" ]
+          },
+          "siteUrl" : {
+            "maxLength" : 1024,
+            "minLength" : 0,
+            "pattern" : "^https?://\\S+$",
+            "type" : [ "string", "null" ]
+          },
+          "sourceUpdatedAt" : {
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "title" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "venueAddress" : {
+            "maxLength" : 512,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "venueName" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "zoneId" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "category", "description", "occurrenceRanges", "online", "prefectureCode", "sourceUpdatedAt", "title", "venueAddress", "venueName", "zoneId" ],
+        "type" : "object"
+      },
+      "SyncUnpublishRequest" : {
+        "properties" : {
+          "sourceUpdatedAt" : {
+            "minLength" : 1,
+            "type" : "string"
+          }
+        },
+        "required" : [ "sourceUpdatedAt" ],
+        "type" : "object"
+      },
+      "TagVO" : {
+        "properties" : {
+          "id" : {
+            "type" : [ "string", "null" ]
+          },
+          "kind" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "title" : {
+            "type" : [ "string", "null" ]
+          }
+        },
+        "required" : [ "kind" ],
+        "type" : "object"
+      },
+      "TagVOWrapper" : {
+        "properties" : {
+          "list" : {
+            "items" : {
+              "$ref" : "#/components/schemas/TagVO"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "list" ],
+        "type" : "object"
+      },
+      "UpdateAiDraftRequest" : {
+        "properties" : {
+          "category" : {
+            "format" : "int32",
+            "type" : [ "integer", "null" ]
+          },
+          "closeAt" : {
+            "type" : [ "string", "null" ]
+          },
+          "description" : {
+            "maxLength" : 10000,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "holdingPeriodNote" : {
+            "maxLength" : 200,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "imageUploadId" : {
+            "maxLength" : 36,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "latitude" : {
+            "format" : "double",
+            "maximum" : 90.0,
+            "minimum" : -90.0,
+            "type" : [ "number", "null" ]
+          },
+          "longitude" : {
+            "format" : "double",
+            "maximum" : 180.0,
+            "minimum" : -180.0,
+            "type" : [ "number", "null" ]
+          },
+          "occurrenceRanges" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OwnedEventOccurrenceRangeRequest"
+            },
+            "maxItems" : 100,
+            "minItems" : 1,
+            "type" : [ "array", "null" ]
+          },
+          "online" : {
+            "type" : [ "boolean", "null" ]
+          },
+          "placeId" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "pattern" : "^$|^[A-Za-z0-9_-]+$",
+            "type" : [ "string", "null" ]
+          },
+          "prefectureCode" : {
+            "format" : "int32",
+            "type" : [ "integer", "null" ]
+          },
+          "publisherEventPageUrl" : {
+            "maxLength" : 1024,
+            "minLength" : 0,
+            "pattern" : "^$|^https?://\\S+$",
+            "type" : [ "string", "null" ]
+          },
+          "startAt" : {
+            "type" : [ "string", "null" ]
+          },
+          "tagIds" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 10,
+            "minItems" : 0,
+            "type" : [ "array", "null" ]
+          },
+          "title" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "pattern" : "(?sU).*\\S.*",
+            "type" : [ "string", "null" ]
+          },
+          "venueAddress" : {
+            "maxLength" : 512,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "venueId" : {
+            "type" : [ "string", "null" ]
+          },
+          "venueName" : {
+            "maxLength" : 256,
+            "minLength" : 0,
+            "type" : [ "string", "null" ]
+          },
+          "zoneId" : {
+            "type" : [ "string", "null" ]
+          }
+        },
+        "type" : "object"
+      }
+    },
+    "securitySchemes" : {
+      "organizationApiKey" : {
+        "description" : "団体の API キーです。書式は `ewk_` と 43 字の英数字です。",
+        "in" : "header",
+        "name" : "X-EW-Api-Key",
+        "type" : "apiKey"
+      }
+    }
+  },
+  "info" : {
+    "description" : "団体のサイトや道具から、EventWatch の投稿を読み書きする API です。",
+    "title" : "EventWatch Organization API",
+    "version" : "1.0"
+  },
+  "openapi" : "3.1.0",
+  "paths" : {
+    "/api/v1.0/org-api/drafts" : {
+      "get" : {
+        "description" : "AI が作った下書きと差し戻しを新しい順に返します。例: page=0&size=20。size の上限は 100 です。編集元が外部のサイトに移った投稿は出ません。",
+        "operationId" : "listDrafts",
+        "parameters" : [ {
+          "description" : "0 から始まるページ番号です。",
+          "in" : "query",
+          "name" : "page",
+          "schema" : {
+            "default" : 0,
+            "format" : "int32",
+            "minimum" : 0,
+            "type" : "integer"
+          }
+        }, {
+          "description" : "1 ページの件数です。",
+          "in" : "query",
+          "name" : "size",
+          "schema" : {
+            "default" : 20,
+            "format" : "int32",
+            "maximum" : 100,
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventsDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "下書きを一覧する",
+        "tags" : [ "下書き" ]
+      },
+      "post" : {
+        "description" : "下書きを作ります（201）。`Idempotency-Key` は必須で、同じ値の再送は作らずに既存の投稿を返します（200）。同じ値で中身が違うと 422（code=idempotencyKeyReused）です。値は 72 時間有効です。未提出の下書きが団体で 50 件あると 409（code=aiDraftLimitExceeded）です。",
+        "operationId" : "createDraft",
+        "parameters" : [ {
+          "in" : "header",
+          "name" : "Idempotency-Key",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateOwnedEventRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventDTO"
+                }
+              }
+            },
+            "description" : "同じ値の再送で、既存の投稿を返します。"
+          },
+          "201" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventDTO"
+                }
+              }
+            },
+            "description" : "下書きを作りました。"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "下書きを作る",
+        "tags" : [ "下書き" ]
+      }
+    },
+    "/api/v1.0/org-api/drafts/{eventId}" : {
+      "get" : {
+        "description" : "差し戻しの理由を含みます。無い・他団体・人が作った投稿は 404 です。AI が作った投稿でも、下書きと差し戻し以外は 409（code=draftNotEditable）、編集元が外部のサイトにあれば 409（code=eventManagedExternally）です。",
+        "operationId" : "getDraft",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "eventId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "下書きを取得する",
+        "tags" : [ "下書き" ]
+      },
+      "patch" : {
+        "description" : "送った項目だけを変えます。null と省略は変えず、空（`\"\"`・`tagIds: []`）で消します。審査の状態は変えません。対象の判定は取得と同じです。",
+        "operationId" : "updateDraft",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "eventId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateAiDraftRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "下書きを部分更新する",
+        "tags" : [ "下書き" ]
+      }
+    },
+    "/api/v1.0/org-api/events" : {
+      "get" : {
+        "description" : "キーの団体の投稿のうち、まだ結び付いていないもの（外部の出所が無い・切り離し中）を新しい順に返します。論理削除した投稿を除き、審査の状態と開催日では絞りません。例: page=0&size=20。size の上限は 100 です。結び付けると一覧から消えて位置がずれるので、続けて取り込むときは page=0 を読み直します。",
+        "operationId" : "listLinkableEvents",
+        "parameters" : [ {
+          "description" : "0 から始まるページ番号です。",
+          "in" : "query",
+          "name" : "page",
+          "schema" : {
+            "default" : 0,
+            "format" : "int32",
+            "minimum" : 0,
+            "type" : "integer"
+          }
+        }, {
+          "description" : "1 ページの件数です。",
+          "in" : "query",
+          "name" : "size",
+          "schema" : {
+            "default" : 20,
+            "format" : "int32",
+            "maximum" : 100,
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventsDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "取り込める投稿を一覧する",
+        "tags" : [ "取り込み" ]
+      }
+    },
+    "/api/v1.0/org-api/images" : {
+      "post" : {
+        "description" : "パートは `file` と `purpose`（`ownedEventImage`・`ownedEventDescriptionImage`）。投入量は団体ごとに 24 時間 100 件で、超えると 409 です。受け付けない形式・大きさは 400 です。",
+        "operationId" : "uploadImage",
+        "requestBody" : {
+          "content" : {
+            "multipart/form-data" : {
+              "schema" : {
+                "properties" : {
+                  "file" : {
+                    "format" : "binary",
+                    "type" : "string"
+                  },
+                  "purpose" : {
+                    "type" : "string"
+                  }
+                },
+                "required" : [ "file", "purpose" ],
+                "type" : "object"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ImageUploadDTO"
+                }
+              }
+            },
+            "description" : "画像を受け付けました。"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "画像を投入する",
+        "tags" : [ "画像" ]
+      }
+    },
+    "/api/v1.0/org-api/organization" : {
+      "get" : {
+        "description" : "キーはヘッダー `X-EW-Api-Key` で送ります（`Authorization` には載せません）。キーが無い・未知・失効済みなら 401、団体が EventWatch に停止されていれば 403（code=organizationSuspended）、Bearer など別の認証と同時に送ると 400 を返します。",
+        "operationId" : "getOrganization",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrgApiOrganizationDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "API キーの団体を取得する",
+        "tags" : [ "団体" ]
+      }
+    },
+    "/api/v1.0/org-api/sites/{siteId}" : {
+      "delete" : {
+        "description" : "プラグインのアンインストールで送ります。掲載は続き、EventWatch の画面で編集できるようになります。投稿が無くても 204 です。そのサイトを送った別のキーが失効せずに残っていれば 403（code=siteBoundToAnotherKey）です。",
+        "operationId" : "detachSite",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "siteId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "切り離しました。"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "サイトの投稿を切り離す",
+        "tags" : [ "投稿の同期" ]
+      }
+    },
+    "/api/v1.0/org-api/sites/{siteId}/events/{postId}" : {
+      "delete" : {
+        "description" : "論理削除します。既に削除した投稿も 204 です。無ければ 404 です。そのサイトを送った別のキーが失効せずに残っていれば 403（code=siteBoundToAnotherKey）です。",
+        "operationId" : "deleteEvent",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "siteId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "path",
+          "name" : "postId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "削除しました。"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "投稿を削除する",
+        "tags" : [ "投稿の同期" ]
+      },
+      "get" : {
+        "description" : "審査の状態・差し戻しの理由・掲載の有無・スラッグを返します。無い・他団体・論理削除した投稿は 404 です。",
+        "operationId" : "getSyncedEvent",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "siteId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "path",
+          "name" : "postId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "投稿の状態を取得する",
+        "tags" : [ "投稿の同期" ]
+      },
+      "put" : {
+        "description" : "無ければ作成して提出します（201）。あれば全置換します（200）。掲載中は審査に戻さず、審査待ちは審査待ちのまま、差し戻し中と下書きは提出し、非公開は公開へ戻します。EventWatch が止めた投稿は内容だけを更新します。`sourceUpdatedAt` が保存済みより前なら反映せず `applied=false` を返します。論理削除した識別子は 409（code=eventDeleted）です。`siteUrl`・`adminUrl` は任意で、送らなければ前の値を残します（`http`・`https` の URL で 1024 字まで）。そのサイトを送った別のキーが失効せずに残っていれば 403（code=siteBoundToAnotherKey）です。",
+        "operationId" : "syncEvent",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "siteId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "path",
+          "name" : "postId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SyncOwnedEventRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrgApiEventSyncResultDTO"
+                }
+              }
+            },
+            "description" : "投稿を全置換しました。"
+          },
+          "201" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrgApiEventSyncResultDTO"
+                }
+              }
+            },
+            "description" : "投稿を作りました。"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "投稿を作成または全置換する",
+        "tags" : [ "投稿の同期" ]
+      }
+    },
+    "/api/v1.0/org-api/sites/{siteId}/events/{postId}/link" : {
+      "post" : {
+        "description" : "取り込みで使います。結び付けた投稿は EventWatch の画面で編集できなくなり、以後は同期で更新します。審査の状態は変えません。同じ組の再送は 200 です。無い・他団体・論理削除した投稿は 404 です。識別子が別の投稿に使われていれば 409（code=externalIdentifierInUse）、投稿が別の識別子に結び付いていれば 409（code=eventAlreadyLinked）です。`siteUrl`・`adminUrl` は任意で、送らなければ前の値を残します（`http`・`https` の URL で 1024 字まで）。そのサイトを送った別のキーが失効せずに残っていれば 403（code=siteBoundToAnotherKey）です。",
+        "operationId" : "linkEvent",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "siteId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "path",
+          "name" : "postId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/LinkOwnedEventRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OwnedEventDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "団体の投稿をサイトの投稿へ結び付ける",
+        "tags" : [ "投稿の同期" ]
+      }
+    },
+    "/api/v1.0/org-api/sites/{siteId}/events/{postId}/unpublish" : {
+      "post" : {
+        "description" : "掲載中は非公開へ、審査待ちは下書きへ。ほかの状態と EventWatch が止めた投稿は何もしません。無ければ 404 です。そのサイトを送った別のキーが失効せずに残っていれば 403（code=siteBoundToAnotherKey）です。",
+        "operationId" : "unpublishEvent",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "siteId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "path",
+          "name" : "postId",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SyncUnpublishRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrgApiEventSyncResultDTO"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "organizationApiKey" : [ ]
+        } ],
+        "summary" : "投稿の公開を取り下げる",
+        "tags" : [ "投稿の同期" ]
+      }
+    }
+  },
+  "servers" : [ {
+    "url" : "https://api.eventwatch.app"
+  } ]
+}
