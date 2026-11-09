@@ -14,7 +14,7 @@ EventWatch の公開ドキュメント（ https://docs.eventwatch.app ）。Astr
 
 ## URL
 
-- URL は製品と目的で作る（例: `/wordpress/setup`）。読者の区分や文書の分類を URL に入れない
+- URL は製品と目的で作る（例: `/wordpress/setup`）。読者の区分や文書の分類を URL に入れない。例外は入口の 2 ページ（`/organizers/`・`/developers/`）だけで、その下にページを作らない
 - ja は接頭辞なし、en は `/en/` に ja と同じパスを続ける
 - **公開した URL は変えない。** プラグインの古い版は利用者のサイトに残るので、そこから指す URL は後から直せない。どうしても変えるときは必ずリダイレクトを置く
 

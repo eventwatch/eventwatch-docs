@@ -30,7 +30,8 @@ export default defineConfig({
           items: [{ slug: 'developers' }],
         },
       ],
-      plugins: [starlightLinksValidator(), starlightLlmsTxt()],
+      // ja を先に公開し en は後から足すので、未翻訳のページへのリンクはリンク切れにしない
+      plugins: [starlightLinksValidator({ errorOnFallbackPages: false }), starlightLlmsTxt()],
     }),
   ],
 });
