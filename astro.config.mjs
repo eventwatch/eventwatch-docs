@@ -22,7 +22,32 @@ export default defineConfig({
         {
           label: '主催者向け',
           translations: { en: 'For organizers' },
-          items: [{ slug: 'organizers' }],
+          items: [
+            { slug: 'organizers' },
+            {
+              label: 'チュートリアル',
+              translations: { en: 'Tutorials' },
+              items: [{ slug: 'wordpress/setup' }],
+            },
+            {
+              label: 'ハウツー',
+              translations: { en: 'How-to guides' },
+              items: [
+                { slug: 'wordpress/blocks' },
+                { slug: 'wordpress/event-pages' },
+                { slug: 'wordpress/maps' },
+                { slug: 'wordpress/sending' },
+                { slug: 'wordpress/import' },
+                { slug: 'wordpress/site-url' },
+                { slug: 'wordpress/uninstall' },
+              ],
+            },
+            {
+              label: 'リファレンス',
+              translations: { en: 'Reference' },
+              items: [{ slug: 'wordpress/listing-status' }, { slug: 'wordpress/troubleshooting' }],
+            },
+          ],
         },
         {
           label: '開発者向け',
