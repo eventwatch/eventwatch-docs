@@ -10,6 +10,10 @@ updates:
           - 'astro'
           - '@astrojs/*'
           - 'starlight-*'
+    ignore:
+      # @astrojs/check の peer が typescript 6 までなので、対応するまで major を上げない
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
   - package-ecosystem: github-actions
     directory: /
     schedule:
