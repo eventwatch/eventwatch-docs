@@ -22,10 +22,6 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: sync-openapi
-  cancel-in-progress: false
-
 env:
   OASDIFF_VERSION: '1.35.0'
   OASDIFF_SHA256: 'a8023002fcb2eaa7f5758148a9303cb63d33b939886df312268bc0fc7b939140'
@@ -51,6 +47,9 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    concurrency:
+      group: sync-openapi
+      cancel-in-progress: false
     permissions:
       contents: write
       pull-requests: write
@@ -73,7 +72,7 @@ jobs:
             -H "Accept: application/vnd.github.raw+json" \
             -o "${RUNNER_TEMP}/org-api.json" \
             "${OPENAPI_SOURCE_URL}"
-          jq -e '.openapi and .paths' "${RUNNER_TEMP}/org-api.json" > /dev/null
+          jq -e '.openapi and ((.paths | type) == "object") and ((.paths | length) > 0)' "${RUNNER_TEMP}/org-api.json" > /dev/null
 
       - name: Open a pull request
         env:

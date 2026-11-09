@@ -35,7 +35,9 @@ mkdir -p "$(dirname "${target}")"
 cp "${spec}" "${target}"
 
 cd "${docs_repo}"
-open_pr="$(gh pr list --head "${branch}" --state open --json number --jq '.[0].number // empty')"
+# --head はブランチ名だけで絞るので、同じ名前のフォークの PR を除く
+open_pr="$(gh pr list --head "${branch}" --state open --json number,isCrossRepository \
+  --jq 'map(select(.isCrossRepository | not)) | .[0].number // empty')"
 
 if [ -z "$(git status --porcelain -- "${target_path}")" ]; then
   # 仕様が main と同じに戻ったら、前に出した PR は取り消された内容なので閉じる
