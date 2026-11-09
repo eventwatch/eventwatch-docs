@@ -1,0 +1,82 @@
+name: Sync OpenAPI
+
+# API の仕様を取得し、openapi/org-api.json を更新する PR を出す。破壊的変更は人が確かめるまで止める。
+# 取得先と読み取りのトークンはシークレットに置く。
+#
+# GITHUB_TOKEN で作った PR には CI が走らない。CI を見たいときは PR を閉じて開き直す。
+on:
+  schedule:
+    # 毎日 09:30 JST
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+    inputs:
+      allow_breaking:
+        description: '人が確かめた破壊的変更を反映する'
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - 'scripts/openapi/**'
+      - '.github/workflows/sync-openapi.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-openapi
+  cancel-in-progress: false
+
+env:
+  OASDIFF_VERSION: '1.35.0'
+  OASDIFF_SHA256: 'a8023002fcb2eaa7f5758148a9303cb63d33b939886df312268bc0fc7b939140'
+
+jobs:
+  guard:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install oasdiff
+        run: ./scripts/openapi/install-oasdiff.sh
+
+      - name: Confirm that a breaking change stops the sync
+        run: ./scripts/openapi/test-breaking-guard.sh
+
+  sync:
+    # 手動の実行も main だけ
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install oasdiff
+        run: ./scripts/openapi/install-oasdiff.sh
+
+      - name: Confirm that a breaking change stops the sync
+        run: ./scripts/openapi/test-breaking-guard.sh
+
+      - name: Fetch the specification
+        env:
+          OPENAPI_SOURCE_URL: ${{ secrets.OPENAPI_SOURCE_URL }}
+          OPENAPI_SOURCE_TOKEN: ${{ secrets.OPENAPI_SOURCE_TOKEN }}
+        run: |
+          curl -fsSL \
+            -H "Authorization: Bearer ${OPENAPI_SOURCE_TOKEN}" \
+            -H "Accept: application/vnd.github.raw+json" \
+            -o "${RUNNER_TEMP}/org-api.json" \
+            "${OPENAPI_SOURCE_URL}"
+          jq -e '.openapi and .paths' "${RUNNER_TEMP}/org-api.json" > /dev/null
+
+      - name: Open a pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALLOW_BREAKING: ${{ inputs.allow_breaking || 'false' }}
+        run: ./scripts/openapi/sync.sh "${RUNNER_TEMP}/org-api.json" .

@@ -1,0 +1,21 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Guard fixture", "version": "1.0" },
+  "paths": {
+    "/example/items": {
+      "get": {
+        "operationId": "listItems",
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/example/items/{id}": {
+      "get": {
+        "operationId": "getItem",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    }
+  }
+}
