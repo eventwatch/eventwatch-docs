@@ -3,6 +3,10 @@ title: wp-config.php で API キーを設定する
 description: EventWatch の API キーを、データベースではなく wp-config.php に置く方法です。
 ---
 
+:::caution[準備中です]
+EventWatch の主催者のログインと API キーの発行は、まだ開いていません。このページの手順は、公開の後に使えるようになります。
+:::
+
 設定画面に保存したキーは、データベースのバックアップやサイトの複製にも含まれます。`wp-config.php` に置くと、データベースにキーを持たずに済みます。
 
 ## 手順

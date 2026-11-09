@@ -45,6 +45,8 @@ API はサーバーから呼ぶためのもので、ブラウザーからは呼�
 | `sync` | 団体の設定で発行した API キー | 投稿の同期・取り込み・画像・団体の確認 |
 | `draft` | 主催者が AI アシスタントに与えた許可 | 下書き・画像・団体の確認 |
 
+団体の設定で発行できるのは `sync` のキーだけです。発行したキーで下書きの操作を呼ぶと 403 になります。`draft` は AI アシスタントの接続で使う範囲で、接続の文書は準備中です。
+
 | タグ | 操作 | `sync` | `draft` |
 | --- | --- | --- | --- |
 | 投稿の同期 | [作成・更新](/api/operations/syncevent/)・[取得](/api/operations/getsyncedevent/)・[取り下げ](/api/operations/unpublishevent/)・[削除](/api/operations/deleteevent/)・[サイトの切り離し](/api/operations/detachsite/) | ○ | × |

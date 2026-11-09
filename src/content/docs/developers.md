@@ -5,6 +5,10 @@ description: EventWatch の API を使う開発者と、WordPress プラグイ�
 
 EventWatch の API の使い方と、WordPress プラグインの拡張をまとめます。AI アシスタントをつなぐ MCP の文書は準備中です。
 
+:::caution[準備中です]
+EventWatch の主催者のログインと API キーの発行は、まだ開いていません。API キーが要る手順は、公開の後に使えるようになります。
+:::
+
 ## API を使う
 
 - [API の認証](/api/authentication)
