@@ -20,6 +20,9 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: npm test
+      # 同期の PR には CI が走らないので、訳の足りない仕様は main へ入った後でここが赤くなって分かる
+      - run: node scripts/openapi/localize.mjs --check
       - run: npm run check
       # starlight-links-validator がビルドの中でリンクを検査し、切れていれば失敗する
       - run: npm run build

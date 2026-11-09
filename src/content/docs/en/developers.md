@@ -1,22 +1,31 @@
 ---
 title: For developers
-description: The starting point for developers who use the EventWatch API, MCP server, and WordPress plugin.
+description: The starting point for developers who use the EventWatch API and developers who extend the WordPress plugin.
 ---
 
-This section covers the API, the MCP server, and extending the WordPress plugin. More pages are on the way.
+This section covers how to use the EventWatch API and how to extend the WordPress plugin. Documentation for MCP, which connects AI assistants, is coming soon.
 
-## Tutorials
+:::caution[Coming soon]
+Organizer login and API key issuance on EventWatch are not open yet. Steps that need an API key will become available after launch.
+:::
 
-Step-by-step guides for getting something running for the first time. Coming soon.
+## Use the API
 
-## How-to guides
+- [API authentication](/en/api/authentication)
+- [List of API operations](/en/api/)
+- [Error format and codes](/en/api/errors)
+- [Rate limits and quotas](/en/api/rate-limits)
+- [Handle 503 and Retry-After](/en/api/retries)
+- [Prevent duplicate creation](/en/api/idempotency)
+- [Compatibility promise](/en/api/compatibility)
 
-Instructions for people who already know what they want to do. Coming soon.
+## Extend the WordPress plugin
 
-## Reference
+- [Block and shortcode attributes](/en/wordpress/block-attributes)
+- [Override templates](/en/wordpress/templates)
+- [Filters](/en/wordpress/filters)
+- [Set the API key in wp-config.php](/en/wordpress/wp-config)
 
-Specifications for the API and the plugin. Coming soon.
+## Follow changes
 
-## Explanation
-
-Background on design and compatibility. Coming soon.
+- [How to read the changelog](/en/changelog)

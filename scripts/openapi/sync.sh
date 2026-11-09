@@ -55,7 +55,18 @@ git add "${target_path}"
 git commit -m "docs: org-api の OpenAPI を更新する"
 git push --force origin "HEAD:${branch}"
 
-body="API の仕様の更新から自動で作った PR です。内容を確かめてマージしてください。${breaking_note}"
+translation_note=""
+missing_status=0
+missing_texts="$(node "${script_dir}/localize.mjs" --check "${target_path}" "openapi/org-api.en-text.json")" || missing_status=$?
+case "${missing_status}" in
+  0) ;;
+  1)
+    translation_note=$'\n\n**en の訳が足りない文があります。** `openapi/org-api.en-text.json` に足すまで、en のページではこの文が ja のまま出ます。訳は main へ別の PR で足してください（このブランチは次の同期で force push されるので、ここに足すと消えます）。\n\n```text\n'"${missing_texts}"$'\n```'
+    ;;
+  *) exit "${missing_status}" ;;
+esac
+
+body="API の仕様の更新から自動で作った PR です。内容を確かめてマージしてください。${breaking_note}${translation_note}"
 
 if [ -n "${open_pr}" ]; then
   gh pr edit "${open_pr}" --body "${body}"

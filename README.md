@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-Node の版は `.nvmrc` にあります。PR の前に `npm run check` と `npm run build` を通してください。リンクが切れているとビルドが失敗します。
+Node の版は `.nvmrc` にあります。PR の前に `npm test`・`npm run check`・`npm run build` を通してください。リンクが切れているとビルドが失敗します。
 
 執筆の規則は [AGENTS.md](./AGENTS.md) にあります。
 

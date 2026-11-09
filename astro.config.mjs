@@ -3,7 +3,22 @@ import starlight from '@astrojs/starlight';
 import { defineConfig } from 'astro/config';
 import starlightLinksValidator from 'starlight-links-validator';
 import starlightLlmsTxt from 'starlight-llms-txt';
-import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi';
+import starlightOpenAPI from 'starlight-openapi';
+
+import { writeEnglishSpec } from './scripts/openapi/localize.mjs';
+import { OPENAPI_SIDEBAR_GROUPS } from './src/openapi-sidebar-groups.mjs';
+
+writeEnglishSpec();
+
+/** @param {string} label */
+const openAPIGroup = (label) => ({ label, items: [], collapsed: false });
+const openAPIGroups = {
+  ja: openAPIGroup(OPENAPI_SIDEBAR_GROUPS.ja),
+  en: openAPIGroup(OPENAPI_SIDEBAR_GROUPS.en),
+};
+
+// 生成の例は仮の値で動かず、fetch はブラウザーから呼べない API に合わない。項目の表は残る
+const openAPISnippets = { operation: false, requestBody: false, response: false };
 
 export default defineConfig({
   site: 'https://docs.eventwatch.app',
@@ -19,6 +34,7 @@ export default defineConfig({
       },
       social: [{ icon: 'external', label: 'EventWatch', href: 'https://eventwatch.app' }],
       customCss: ['./src/styles/custom.css'],
+      routeMiddleware: './src/routeData.ts',
       sidebar: [
         {
           label: '主催者向け',
@@ -72,7 +88,8 @@ export default defineConfig({
                 { slug: 'api/authentication' },
                 { slug: 'api/errors' },
                 { slug: 'api/rate-limits' },
-                ...openAPISidebarGroups,
+                openAPIGroups.ja,
+                openAPIGroups.en,
                 { slug: 'wordpress/block-attributes' },
                 { slug: 'wordpress/filters' },
               ],
@@ -91,15 +108,20 @@ export default defineConfig({
           {
             base: 'api',
             schema: './openapi/org-api.json',
-            sidebar: { label: 'API の操作' },
-            // 生成の例は仮の値で動かず、fetch はブラウザーから呼べない API に合わない。項目の表は残る
-            snippets: { operation: false, requestBody: false, response: false },
+            sidebar: { label: 'API の操作', group: openAPIGroups.ja },
+            snippets: openAPISnippets,
+          },
+          {
+            base: 'en/api',
+            schema: './openapi/generated/org-api.en.json',
+            sidebar: { label: 'API operations', group: openAPIGroups.en },
+            snippets: openAPISnippets,
           },
         ]),
         // 生成のページは動的なルートで、検査の対象のページの一覧に入らない
         starlightLinksValidator({
           errorOnFallbackPages: false,
-          exclude: ['/api/', '/api/operations/*/'],
+          exclude: ['/api/', '/api/operations/*/', '/en/api/', '/en/api/operations/*/'],
         }),
         starlightLlmsTxt(),
       ],
