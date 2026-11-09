@@ -17,7 +17,7 @@ The following are treated as breaking changes.
 
 We don't change the meaning of current URLs. We add a new version, such as `/api/v2.0/`, and run it alongside the current one.
 
-**The current version keeps running for at least 6 months after the new version is released.** Notice is posted on this site.
+**The current version keeps running for at least 6 months after the new version is released, and is then shut down.** Notice is posted on this site.
 
 ## What is not a breaking change
 

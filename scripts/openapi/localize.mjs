@@ -3,7 +3,7 @@
 //
 // 使い方: localize.mjs --check [仕様] [対応表]
 // 訳が足りない文があれば一覧を出して終了コード 1 を返す。無ければ 0。
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -76,7 +76,8 @@ export function writeEnglishSpec() {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+// import.meta.url は symlink を解決した値なので、起動のパスも解決して比べる
+if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) {
   const [flag, specPath = SPEC, textsPath = TEXTS] = process.argv.slice(2);
   if (flag !== '--check') {
     console.error('usage: localize.mjs --check [spec] [texts]');

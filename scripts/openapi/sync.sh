@@ -61,7 +61,7 @@ missing_texts="$(node "${script_dir}/localize.mjs" --check "${target_path}" "ope
 case "${missing_status}" in
   0) ;;
   1)
-    translation_note=$'\n\n**en の訳が足りない文があります。** `openapi/org-api.en-text.json` に足すまで、en のページではこの文が ja のまま出ます。\n\n```text\n'"${missing_texts}"$'\n```'
+    translation_note=$'\n\n**en の訳が足りない文があります。** `openapi/org-api.en-text.json` に足すまで、en のページではこの文が ja のまま出ます。訳は main へ別の PR で足してください（このブランチは次の同期で force push されるので、ここに足すと消えます）。\n\n```text\n'"${missing_texts}"$'\n```'
     ;;
   *) exit "${missing_status}" ;;
 esac

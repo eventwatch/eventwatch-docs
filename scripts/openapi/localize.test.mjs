@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { test } from 'node:test';
@@ -29,13 +29,13 @@ const spec = {
 
 const texts = { '団体の API です。': 'The organization API.', 一覧する: 'List', 下書き: 'Drafts' };
 
-function runCheck(specValue, textsValue) {
+function runCheck(specValue, textsValue, cli = CLI) {
   const dir = mkdtempSync(join(tmpdir(), 'localize-'));
   const specPath = join(dir, 'spec.json');
   const textsPath = join(dir, 'texts.json');
   writeFileSync(specPath, JSON.stringify(specValue));
   writeFileSync(textsPath, JSON.stringify(textsValue));
-  return spawnSync(process.execPath, [CLI, '--check', specPath, textsPath], { encoding: 'utf8' });
+  return spawnSync(process.execPath, [cli, '--check', specPath, textsPath], { encoding: 'utf8' });
 }
 
 test('description・summary・tags を訳し、ほかは変えない', () => {
@@ -80,6 +80,16 @@ test('--check は訳が揃っていれば 0 を返す', () => {
 
 test('--check は足りない文を出して 1 を返す', () => {
   const result = runCheck(spec, { '団体の API です。': 'The organization API.', 下書き: 'Drafts' });
+
+  assert.equal(result.status, 1);
+  assert.equal(result.stdout, '一覧する\n');
+});
+
+test('symlink から起動しても --check が働く', () => {
+  const link = join(mkdtempSync(join(tmpdir(), 'localize-link-')), 'localize.mjs');
+  symlinkSync(CLI, link);
+
+  const result = runCheck(spec, { '団体の API です。': 'The organization API.', 下書き: 'Drafts' }, link);
 
   assert.equal(result.status, 1);
   assert.equal(result.stdout, '一覧する\n');
