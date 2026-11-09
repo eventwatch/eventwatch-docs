@@ -28,7 +28,7 @@ curl https://api.eventwatch.app/api/v1.0/org-api/organization \
 }
 ```
 
-キーは `ewk_` と 43 字の英数字です。`Authorization` ヘッダーには入れません。キーと `Authorization` を同時に送ると 400 になります。
+キーは `ewk_` と 43 字の英数字です。`Authorization` ヘッダーには入れません。キーと `Authorization: Bearer` を同時に送ると 400 になります。
 
 API はサーバーから呼ぶためのもので、ブラウザーからは呼べません。キーをページの JavaScript に書かないでください。
 
@@ -59,7 +59,7 @@ API はサーバーから呼ぶためのもので、ブラウザーからは呼�
 | --- | --- |
 | `X-EW-Api-Key` が無い | 401。本文はありません |
 | キーの形が違う・知られていない・失効している | 401。[エラーの形](/api/errors) の本文 |
-| キーと `Authorization` を同時に送った | 400 |
+| キーと `Authorization: Bearer` を同時に送った | 400 |
 | 範囲で呼べない操作を呼んだ | 403。本文は `text/plain` の `Access Denied` です |
 | 団体が停止されている | 403。`code` は `organizationSuspended` |
 

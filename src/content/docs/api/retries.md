@@ -3,7 +3,7 @@ title: 503 と Retry-After を受ける
 description: EventWatch の API が一時的に応じられないときに、要求を送り直す方法です。
 ---
 
-混み合っているとき、API は 503 と `Retry-After` を返します。429 にも `Retry-After` が付きます。
+混み合っているとき、API は 503 や 429 を返します。キーの流量の 429 と、多くの 503 には `Retry-After` が付きます。IP ごとの流量の 429 と、一部の 503 には付きません。
 
 ## 待ち時間
 
@@ -32,22 +32,29 @@ description: EventWatch の API が一時的に応じられないときに、要
 
 ## 例
 
-`Retry-After` を読んで 1 度だけ送り直す例です。
+`Retry-After` があるときだけ、1 度だけ送り直す例です。
 
 ```sh
 url="https://api.eventwatch.app/api/v1.0/org-api/organization"
 headers="$(mktemp)"
+body="$(mktemp)"
 
-status=$(curl -s -o /dev/null -D "$headers" -w '%{http_code}' \
-  -H "X-EW-Api-Key: $EVENTWATCH_API_KEY" "$url")
+request() {
+  curl -s -o "$body" -D "$headers" -w '%{http_code}' \
+    -H "X-EW-Api-Key: $EVENTWATCH_API_KEY" "$url"
+}
+
+status=$(request)
 
 if [ "$status" = "503" ] || [ "$status" = "429" ]; then
   wait=$(tr -d '\r' < "$headers" | awk 'tolower($1) == "retry-after:" { print $2 }')
   if [ -n "$wait" ]; then
     sleep "$wait"
-    curl -s -H "X-EW-Api-Key: $EVENTWATCH_API_KEY" "$url"
+    status=$(request)
   fi
 fi
 
-rm -f "$headers"
+echo "status: $status"
+cat "$body"
+rm -f "$headers" "$body"
 ```

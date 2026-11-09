@@ -12,7 +12,7 @@ description: EventWatch Events プラグインが公開しているフィルタ�
 
 対応する SEO プラグインは、Yoast SEO・Rank Math・All in One SEO・SEOPress・The SEO Framework です。
 
-パスワードで保護したイベントでは、どちらも出しません。
+パスワードで保護したイベントでは、パスワードを入れていない閲覧者にはどちらも出しません。
 
 ここに載せていないフィルターと、`eventwatch/v1` の REST の口は、プラグインの内部で使うものです。予告なく変わります。
 

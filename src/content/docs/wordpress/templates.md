@@ -55,9 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 次の順に探します。
 
-1. テーマの `single-eventwatch_event.php`
-2. テーマの `eventwatch/single-event.php`
-3. プラグインの `templates/single-event.php`
+1. テーマの `single-eventwatch_event-{スラッグ}.php`
+2. テーマの `single-eventwatch_event.php`
+3. テーマの `eventwatch/single-event.php`
+4. プラグインの `templates/single-event.php`
 
 `eventwatch/single-event.php` を作るときは、プラグインの `templates/single-event.php` を写して直すのが簡単です。
 

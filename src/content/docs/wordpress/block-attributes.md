@@ -14,8 +14,8 @@ description: EventWatch Events プラグインのブロックの属性と、シ�
 | `layout` | `layout` | 文字列 | `cards` | `cards`・`list` |
 | `perPage` | `per_page` | 整数 | `6` | 1〜24 |
 | `order` | `order` | 文字列 | `asc` | `asc`・`desc` |
-| `categoryId` | `category` | ブロックは整数、ショートコードはスラッグ | なし | カテゴリ |
-| `tagId` | `tag` | ブロックは整数、ショートコードはスラッグ | なし | タグ |
+| `categoryId` | `category` | ブロックは整数、ショートコードはスラッグ | なし | サイトのイベントカテゴリー |
+| `tagId` | `tag` | ブロックは整数、ショートコードはスラッグ | なし | サイトのイベントタグ |
 | `prefecture` | `prefecture` | 整数 | `0` | 1〜47（JIS の順）。`0` は絞らない |
 | `dateFrom` | `from` | 文字列 | なし | `2026-12-01` の形 |
 | `dateTo` | `to` | 文字列 | なし | `2026-12-31` の形 |
@@ -50,7 +50,7 @@ description: EventWatch Events プラグインのブロックの属性と、シ�
 
 ## イベントの検索
 
-ブロックは `eventwatch/event-search`、ショートコードは `[eventwatch_search]` です。1 ページに 1 つだけ置けます。
+ブロックは `eventwatch/event-search`、ショートコードは `[eventwatch_search]` です。ブロックは 1 ページに 1 つだけ置けます。
 
 | ブロックの属性 | ショートコードの属性 | 型 | 既定 | 値 |
 | --- | --- | --- | --- | --- |
@@ -69,11 +69,11 @@ description: EventWatch Events プラグインのブロックの属性と、シ�
 | `category` | カテゴリ |
 | `dates` | 日時 |
 | `venue` | 会場 |
-| `organizer` | 主催者 |
+| `organizer` | 主催 |
 | `map` | 地図 |
 | `calendar` | カレンダーに追加 |
 | `interested` | 気になる |
 | `share` | 共有 |
-| `official` | 公式ページ |
+| `official` | 公式ページへのリンク |
 
 `eventwatch/event-actions` は `eventwatch/event-field` を入れる枠で、属性はありません。
