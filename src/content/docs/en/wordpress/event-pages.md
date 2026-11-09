@@ -22,12 +22,14 @@ Pages are displayed in the following order.
 5. Body
 6. Date and time
 7. Venue
-8. Organizer
+8. Organizer (your site name)
 9. Map (when there is venue information)
 10. Add to calendar, Save, and Share buttons (Save appears when the event is listed on EventWatch and has upcoming dates)
 11. Link to the official page (when a **Separate official page** is entered)
 
 Password-protected events show only the title and the password form until the visitor enters the password.
+
+The page also outputs schema.org `Event` data, a description, and Open Graph tags. You can change how this works with an SEO plugin using [filters](/en/wordpress/filters).
 
 ## Rearrange in the Site Editor
 

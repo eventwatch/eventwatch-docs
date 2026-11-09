@@ -18,7 +18,7 @@ Only administrators of a site with an API key can use this.
 3. Select **Import selected**.
 4. Keep this page open until it finishes.
 
-Posts are processed one at a time, and closing the page stops the process. Selecting **Try again** never creates the same post twice.
+Posts are processed one at a time, and closing the page stops the process. If an import doesn't finish, the draft stays on your site. Selecting **Try again** never creates the same post twice.
 
 ## Status after importing
 

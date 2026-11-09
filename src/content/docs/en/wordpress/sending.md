@@ -25,7 +25,7 @@ Updates that don't change the content aren't sent. While the status is **Changes
 - Title, body, date and time, notes on dates, category, prefecture, online setting, venue name and address, and official page URL
 - One featured image
 
-Headings, paragraphs, lists, quotes, links, emphasis, strikethrough, code, and tables in the body are sent. Images and embeds in the body are not sent. For events imported from EventWatch, images in the body stay in the body on EventWatch.
+The body is sent as Markdown. Headings, paragraphs, lists, quotes, links, emphasis, strikethrough, code, and tables in the body are sent. Images and embeds in the body are not sent. For events imported from EventWatch, images in the body stay in the body on EventWatch.
 
 The featured image is sent shortly after saving (usually about a minute), and only when the file has changed. Removing the featured image removes it on EventWatch too.
 
