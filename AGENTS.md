@@ -35,6 +35,7 @@ EventWatch の公開ドキュメント（ https://docs.eventwatch.app ）。Astr
 
 - 本文は ja を先に書く。en は `src/content/docs/en/` に同じパスで置く。en が無いページは ja の本文と未翻訳の通知が出る
 - 画面の名前と操作の名前は、実際の画面の表示に揃える
+- API リファレンスの生成元は ja の `openapi/org-api.json` の 1 つだけで、`/en/api/` の説明文は `openapi/org-api.en-text.json`（ja の文 → en の文）からビルドのときに作る。訳の無い文は en のページでも ja のまま出る。足りない文は `node scripts/openapi/localize.mjs --check` で分かる
 - 色とロゴだけを EventWatch に合わせ、部品は Starlight の標準を使う
 
 ## 開発
@@ -47,8 +48,9 @@ Node の版は `.mise.toml` と `.nvmrc`（同じ値）。
 | `npm run dev` | 開発サーバー |
 | `npm run check` | 型と文書の frontmatter の検査 |
 | `npm run build` | ビルド。リンク切れがあると失敗する（starlight-links-validator） |
+| `npm test` | en の API リファレンスの生成のテスト |
 
-PR の前に `npm run check` と `npm run build` を通す。CI（`.github/workflows/ci.yml`）も同じコマンドを流す。
+PR の前に `npm test`・`npm run check`・`npm run build` を通す。CI（`.github/workflows/ci.yml`）も同じコマンドを流す。
 
 main へのマージで本番に公開される。PR ごとにプレビューが出る。
 
