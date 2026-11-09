@@ -18,16 +18,16 @@ EventWatch's review affects only the listing on EventWatch. The event appears on
 | Delete permanently | Also deleted on EventWatch if it was sent |
 | Turn off **Send this post to EventWatch** | Kept on your site only. Withdrawn if it was sent |
 
-Updates that don't change the content aren't sent. While the status is **Changes requested**, the event is sent again even if the content is the same.
+Updates that don't change the content aren't sent. While the status is **Changes requested**, the event is sent again even if the content is the same. The plugin reads the event again when it sends, so only the latest version is sent.
 
 ## What is sent
 
 - Title, body, date and time, notes on dates, category, prefecture, online setting, venue name and address, and official page URL
 - One featured image
 
-Headings, paragraphs, lists, quotes, links, emphasis, strikethrough, code, and tables in the body are sent. Images and embeds in the body are not sent. For events imported from EventWatch, images in the body stay in the body on EventWatch.
+The body is sent as Markdown. Headings, paragraphs, lists, quotes, links, emphasis, strikethrough, code, and tables in the body are sent. Images and embeds in the body are not sent. For events imported from EventWatch, images in the body stay in the body on EventWatch.
 
-The featured image is sent shortly after saving (usually about a minute).
+The featured image is sent shortly after saving (usually about a minute), and only when the file has changed. Removing the featured image removes it on EventWatch too.
 
 ## Send published events in bulk
 
