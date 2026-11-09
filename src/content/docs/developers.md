@@ -1,22 +1,27 @@
 ---
 title: 開発者向け
-description: EventWatch の API・MCP・WordPress プラグインを使う開発者のための文書の入口です。
+description: EventWatch の API を使う開発者と、WordPress プラグインを拡張する開発者のための文書の入口です。
 ---
 
-API・MCP の使い方と、WordPress プラグインの拡張をまとめます。文書は順次追加します。
+EventWatch の API の使い方と、WordPress プラグインの拡張をまとめます。AI アシスタントをつなぐ MCP の文書は準備中です。
 
-## チュートリアル
+## API を使う
 
-はじめての方が、手順どおりに進めて 1 回動かすための文書です。準備中です。
+- [API の認証](/api/authentication)
+- [API の操作の一覧](/api/)
+- [エラーの形と code](/api/errors)
+- [流量と上限](/api/rate-limits)
+- [503 と Retry-After を受ける](/api/retries)
+- [二重の作成を防ぐ](/api/idempotency)
+- [互換性の約束](/api/compatibility)
 
-## ハウツー
+## WordPress プラグインを拡張する
 
-やりたいことが決まっている方のための、手順の文書です。準備中です。
+- [ブロックとショートコードの属性](/wordpress/block-attributes)
+- [テンプレートを上書きする](/wordpress/templates)
+- [フィルター](/wordpress/filters)
+- [wp-config.php で API キーを設定する](/wordpress/wp-config)
 
-## リファレンス
+## 変更を追う
 
-API やプラグインの仕様を調べるための文書です。準備中です。
-
-## 解説
-
-設計や互換性の考え方を理解するための文書です。準備中です。
+- [変更履歴の見方](/changelog)
