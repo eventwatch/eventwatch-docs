@@ -34,7 +34,7 @@ The API is meant to be called from servers and can't be called from browsers. Do
 
 ## Issue and revoke keys
 
-An organization admin issues keys in the organization settings on EventWatch. The key string is shown only once, when it is issued. The issuing screen is the same as in [Get started with the WordPress plugin](/en/wordpress/setup#2-issue-an-api-key).
+An organization admin issues keys in **Organizer settings** on EventWatch. The key string is shown only once, when it is issued. The issuing screen is the same as in [Get started with the WordPress plugin](/en/wordpress/setup#2-issue-an-api-key).
 
 A revoked key returns 401 from the next request on. A key is also revoked when the person who issued it stops being an admin of the organization or leaves it.
 
@@ -42,10 +42,10 @@ A revoked key returns 401 from the next request on. A key is also revoked when t
 
 | Scope | Held by | Callable operations |
 | --- | --- | --- |
-| `sync` | API keys issued in the organization settings | Post sync, import, images, organization check |
+| `sync` | API keys issued in **Organizer settings** | Post sync, import, images, organization check |
 | `draft` | Permission an organizer granted to an AI assistant | Drafts, images, organization check |
 
-Only `sync` keys can be issued in the organization settings. Calling a draft operation with an issued key returns 403. `draft` is the scope used by AI assistant connections; documentation for those connections is coming soon.
+Only `sync` keys can be issued in **Organizer settings**. Calling a draft operation with an issued key returns 403. `draft` is the scope used by AI assistant connections; documentation for those connections is coming soon.
 
 | Tag | Operations | `sync` | `draft` |
 | --- | --- | --- | --- |

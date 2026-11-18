@@ -42,7 +42,7 @@ curl -X PUT https://api.eventwatch.app/api/v1.0/org-api/sites/my-site-1/events/1
 
 ## 下書きの作成
 
-下書きの操作は `draft` の範囲だけが呼べます（[範囲と呼べる操作](/api/authentication#範囲と呼べる操作)）。団体の設定で発行した API キーでは呼べません。
+下書きの操作は `draft` の範囲だけが呼べます（[範囲と呼べる操作](/api/authentication#範囲と呼べる操作)）。「主催者の設定」で発行した API キーでは呼べません。
 
 [下書きの作成](/api/operations/createdraft/) は、ヘッダー `Idempotency-Key` が必須です。値は英数字とハイフン・アンダースコアで 128 字までです。
 

@@ -15,7 +15,7 @@ Screen names on this page match the English display of plugin version 0.1.0.
 
 - A site running WordPress 6.7 or later and PHP 7.4 or later, and administrator access to it
 - An EventWatch account (you log in with a Google account)
-- An EventWatch organization. An organization is created when you list your first event. Until you have one, the **Site connection** link doesn't appear, so first list one event from **Post an event** on EventWatch
+- An EventWatch organizer (organization). Your first organizer is created when you list your first event. Until you have one, the **Site connection** link doesn't appear, so first list one event from **Post an event** on EventWatch. After that, you can create more with **Add an organizer** on **Your events**
 
 If you only want to manage events on your own site, you don't need an EventWatch account or an API key. While no key is set, events stay on your site and nothing is sent.
 
@@ -30,8 +30,8 @@ If you only want to manage events on your own site, you don't need an EventWatch
 
 An API key is a string that connects your site to your EventWatch organization. Only organization admins can issue one. Issue one key per site.
 
-1. Log in to EventWatch and open **Your events**.
-2. Open the **Site connection** link next to the heading. The plugin's on-screen guidance calls this place **Organization settings › Site connection**.
+1. Log in to EventWatch and open **Your events**. If you manage more than one organizer, choose the organizer to issue the key for in the **Organizer** row above the heading.
+2. Open the **Site connection** link in **Organizer settings** next to the heading. The plugin's on-screen guidance calls this place **Organization settings › Site connection**.
 3. Select **Issue a key**.
 4. Enter a name that tells you which site uses the key, and select **Issue**.
 5. **Copy** the key that appears.
