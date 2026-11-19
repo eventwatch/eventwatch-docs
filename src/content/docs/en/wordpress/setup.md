@@ -31,7 +31,7 @@ If you only want to manage events on your own site, you don't need an EventWatch
 An API key is a string that connects your site to your EventWatch organization. Only organization admins can issue one. Issue one key per site.
 
 1. Log in to EventWatch and open **Your events**. If you manage more than one organizer, choose the organizer to issue the key for in the **Organizer** row above the heading.
-2. Open the **Site connection** link in **Organizer settings** next to the heading. The plugin's on-screen guidance calls this place **Organization settings › Site connection**.
+2. Open the **Site connection** link in **Organizer settings** next to the heading.
 3. Select **Issue a key**.
 4. Enter a name that tells you which site uses the key, and select **Issue**.
 5. **Copy** the key that appears.

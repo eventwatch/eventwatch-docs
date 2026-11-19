@@ -32,7 +32,7 @@ The one image sent is the featured image. JPEG, PNG, and WebP up to 10 MB are ac
 | "The image is over EventWatch’s limit of 10 MB" | Choose a smaller image |
 | "The image file couldn’t be read on this site" | Choose the image again, or choose another one |
 | "Couldn’t upload the image to EventWatch" | Retried automatically about once an hour |
-| "Your organization has reached EventWatch’s limit of images for today" | Retried automatically about once an hour |
+| "Your organizer has reached EventWatch’s limit of images for today" | Retried automatically about once an hour |
 | "EventWatch didn’t accept the image" | Choose another image |
 
 Even if the image can't be sent, the other content is. If EventWatch already has an image for this event, it stays. Files stored outside your site can't be sent.
@@ -54,7 +54,7 @@ Under **EventWatch connection** in **Settings › EventWatch**, you see the foll
 | "Connected to EventWatch" | When you check the connection | Nothing is wrong |
 | "That doesn’t look like an EventWatch API key" | When you save a key | Keys start with `ewk_` and have 47 characters. Copy the whole key again |
 | "EventWatch rejected this API key" | When you check the connection, or when sending is refused | The key may have been revoked, or the person who issued it may have left the organization or stopped being an admin. Ask an organization admin to issue a new one under **Site connection** |
-| "Your organization is suspended on EventWatch" | When you check the connection, or when sending is refused | This isn't a problem with the key. Contact EventWatch |
+| "Your organizer is suspended on EventWatch" | When you check the connection, or when sending is refused | This isn't a problem with the key. Contact EventWatch |
 | "connected to EventWatch with another API key that hasn’t been revoked" | When sending is refused | Revoke the old key under **Site connection**, then select **Check connection** |
 | "EventWatch doesn’t allow this API key to be used for this site" | When you check the connection, or when sending is refused | Contact EventWatch |
 | "Couldn’t confirm the connection to EventWatch" | When you check the connection | Wait a moment, then try again |
