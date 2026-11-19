@@ -42,7 +42,7 @@ Resend a request whose response was lost with the same `sourceUpdatedAt`. Even i
 
 ## Draft creation
 
-Draft operations can be called only with the `draft` scope ([Scopes and callable operations](/en/api/authentication#scopes-and-callable-operations)). They can't be called with API keys issued in the organization settings.
+Draft operations can be called only with the `draft` scope ([Scopes and callable operations](/en/api/authentication#scopes-and-callable-operations)). They can't be called with API keys issued in **Organizer settings**.
 
 [Create a draft](/en/api/operations/createdraft/) requires the `Idempotency-Key` header. The value can contain letters, digits, hyphens, and underscores, up to 128 characters.
 
