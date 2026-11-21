@@ -65,6 +65,11 @@ export default defineConfig({
               translations: { en: 'Reference' },
               items: [{ slug: 'wordpress/listing-status' }, { slug: 'wordpress/troubleshooting' }],
             },
+            {
+              label: '解説',
+              translations: { en: 'Explanation' },
+              items: [{ slug: 'announce-events' }],
+            },
           ],
         },
         {
