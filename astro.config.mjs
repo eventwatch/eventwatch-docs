@@ -57,6 +57,7 @@ export default defineConfig({
                 { slug: 'wordpress/import' },
                 { slug: 'wordpress/site-url' },
                 { slug: 'wordpress/uninstall' },
+                { slug: 'ai-assistants/connect' },
               ],
             },
             {
@@ -90,6 +91,8 @@ export default defineConfig({
                 { slug: 'api/rate-limits' },
                 openAPIGroups.ja,
                 openAPIGroups.en,
+                { slug: 'mcp/authentication' },
+                { slug: 'mcp/tools' },
                 { slug: 'wordpress/block-attributes' },
                 { slug: 'wordpress/filters' },
               ],

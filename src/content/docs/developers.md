@@ -3,11 +3,7 @@ title: 開発者向け
 description: EventWatch の API を使う開発者と、WordPress プラグインを拡張する開発者のための文書の入口です。
 ---
 
-EventWatch の API の使い方と、WordPress プラグインの拡張をまとめます。AI アシスタントをつなぐ MCP の文書は準備中です。
-
-:::caution[準備中です]
-EventWatch の主催者のログインと API キーの発行は、まだ開いていません。API キーが要る手順は、公開の後に使えるようになります。
-:::
+EventWatch の API の使い方と、AI アシスタントをつなぐ MCP、WordPress プラグインの拡張をまとめます。
 
 ## API を使う
 
@@ -18,6 +14,11 @@ EventWatch の主催者のログインと API キーの発行は、まだ開い�
 - [503 と Retry-After を受ける](/api/retries)
 - [二重の作成を防ぐ](/api/idempotency)
 - [互換性の約束](/api/compatibility)
+
+## AI アシスタントをつなぐ（MCP）
+
+- [MCP の接続と認証](/mcp/authentication)
+- [MCP のツール](/mcp/tools)
 
 ## WordPress プラグインを拡張する
 

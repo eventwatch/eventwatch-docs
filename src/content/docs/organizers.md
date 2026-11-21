@@ -22,6 +22,7 @@ description: EventWatch にイベントを載せる主催者のための文書�
 - [EventWatch の投稿を取り込む](/wordpress/import)
 - [サイトの URL が変わったとき](/wordpress/site-url)
 - [プラグインを削除する](/wordpress/uninstall)
+- [AI アシスタントで下書きを作る](/ai-assistants/connect)
 
 ## リファレンス
 
