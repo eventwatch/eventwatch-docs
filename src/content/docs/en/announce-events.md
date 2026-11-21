@@ -23,24 +23,13 @@ EventWatch checks (reviews) the details of each event before publishing it.
 | --- | --- |
 | **Under review** | EventWatch is checking the details. It is published when the check is done |
 | **Published** | It appears in EventWatch's lists and search |
-| **Changes requested** | There is something to fix (sent back). Read the reason, fix it from **Fix and resubmit**, and send it again |
+| **Changes requested** | There is something to fix (sent back). Read the reason, fix and save it from **Fix and resubmit**, then select **Send for review** on **Your events** |
 
 People do the check, so publication can take some time. We don't give an estimate of how many days the check takes.
 
 ## Events you can list
 
-You can list events like these. See the [posting guidelines](https://eventwatch.app/en/post/guidelines) for details.
-
-- The date, time, and location are decided. Online events are fine
-- The organizer is announcing it, or you announce it at the organizer's request
-- Anyone can consider joining. Events that need an application or a lottery are fine
-
-You can't list the following:
-
-- The date, time, or location isn't decided yet
-- Participation is limited, and there's no need to announce it publicly
-- It only promotes a product or service, with no real event
-- It reposts text or images made by others without permission
+Events whose date, time, and location are decided and that anyone can consider joining are eligible. What you can and can't list is in the [posting guidelines](https://eventwatch.app/en/post/guidelines). Read them before sending.
 
 ## Choose how to list
 
@@ -48,7 +37,7 @@ You can't list the following:
 | --- | --- | --- |
 | Post on the web | Listing events one at a time. First-time organizers | [Post an event](https://eventwatch.app/en/post) |
 | Create drafts with an AI assistant | Organizers who have a flyer or an announcement and want AI to fill in the details | [Create drafts with an AI assistant](/en/ai-assistants/connect) |
-| Send with the WordPress plugin | Organizers who run their own site on WordPress | [Get started with the WordPress plugin](/en/wordpress/setup) |
+| Send with the WordPress plugin | Organizers who run their own site on WordPress (the plugin is being prepared for release and isn't available yet) | [Get started with the WordPress plugin](/en/wordpress/setup) |
 
 ### Post on the web
 
@@ -74,7 +63,7 @@ How to connect is in [Create drafts with an AI assistant](/en/ai-assistants/conn
 
 Events you publish on your WordPress site can be sent to EventWatch as they are. There's no separate send button; publishing on your site sends the event. It appears on your site without waiting for EventWatch's check.
 
-The plugin is being prepared for release in the WordPress plugin directory. The steps are in [Get started with the WordPress plugin](/en/wordpress/setup).
+**The plugin is being prepared for release in the WordPress plugin directory and isn't available yet.** After release, list one event on the web first to create your organizer, then follow [Get started with the WordPress plugin](/en/wordpress/setup).
 
 ## After listing
 
