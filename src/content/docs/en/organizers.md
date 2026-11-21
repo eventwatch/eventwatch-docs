@@ -22,6 +22,7 @@ Instructions for people who already know what they want to do.
 - [Import EventWatch posts](/en/wordpress/import)
 - [When your site URL changes](/en/wordpress/site-url)
 - [Delete the plugin](/en/wordpress/uninstall)
+- [Create drafts with an AI assistant](/en/ai-assistants/connect)
 
 ## Reference
 
