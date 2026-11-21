@@ -43,4 +43,4 @@ In [List importable posts](/en/api/operations/listlinkableevents/), linking a po
 
 ## Drafts
 
-Each organization can have up to 50 unsubmitted drafts created by AI assistants. The 51st returns 409 (`code` is `aiDraftLimitExceeded`). Retrying a draft you already created succeeds even at the limit.
+Each organization can have up to 50 unsubmitted drafts created by AI assistants. The 51st returns 409 (`code` is `aiDraftLimitExceeded`). Retrying a draft you already created succeeds even at the limit. The tools AI assistants use to create drafts are in [MCP tools](/en/mcp/tools).

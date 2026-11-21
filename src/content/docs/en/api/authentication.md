@@ -3,10 +3,6 @@ title: API authentication
 description: How to call the EventWatch API with an API key, plus key scopes, revocation, and the responses to failed authentication.
 ---
 
-:::caution[Coming soon]
-Organizer login and API key issuance on EventWatch are not open yet. The steps on this page will become available after launch.
-:::
-
 The organization API is called from your organization's site server. A key can read and write only the data of its own organization.
 
 ## Send the key
@@ -45,7 +41,7 @@ A revoked key returns 401 from the next request on. A key is also revoked when t
 | `sync` | API keys issued in **Organizer settings** | Post sync, import, images, organization check |
 | `draft` | Permission an organizer granted to an AI assistant | Drafts, images, organization check |
 
-Only `sync` keys can be issued in **Organizer settings**. Calling a draft operation with an issued key returns 403. `draft` is the scope used by AI assistant connections; documentation for those connections is coming soon.
+Only `sync` keys can be issued in **Organizer settings**. Calling a draft operation with an issued key returns 403. `draft` is the scope used by AI assistant connections. The connection method is in [MCP connection and authentication](/en/mcp/authentication).
 
 | Tag | Operations | `sync` | `draft` |
 | --- | --- | --- | --- |

@@ -3,10 +3,6 @@ title: Set the API key in wp-config.php
 description: How to keep your EventWatch API key in wp-config.php instead of the database.
 ---
 
-:::caution[Coming soon]
-Organizer login and API key issuance on EventWatch are not open yet. The steps on this page will become available after launch.
-:::
-
 A key saved on the settings screen is included in database backups and site copies. Putting it in `wp-config.php` means the database doesn't have to hold the key.
 
 ## Steps

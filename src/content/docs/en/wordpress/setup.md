@@ -6,7 +6,7 @@ description: How to install the EventWatch Events plugin on WordPress, set your 
 You can list the events you publish on your WordPress site on EventWatch as they are. This page walks you through installing the plugin and sending your first event.
 
 :::caution[Coming soon]
-The plugin is being prepared for release in the WordPress plugin directory. Organizer login and API key issuance on EventWatch are not open yet either. The steps on this page will become available after launch.
+The plugin is being prepared for release in the WordPress plugin directory. The steps on this page will become available after launch.
 :::
 
 Screen names on this page match the English display of plugin version 0.1.0.

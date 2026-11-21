@@ -3,11 +3,7 @@ title: For developers
 description: The starting point for developers who use the EventWatch API and developers who extend the WordPress plugin.
 ---
 
-This section covers how to use the EventWatch API and how to extend the WordPress plugin. Documentation for MCP, which connects AI assistants, is coming soon.
-
-:::caution[Coming soon]
-Organizer login and API key issuance on EventWatch are not open yet. Steps that need an API key will become available after launch.
-:::
+This section covers how to use the EventWatch API, MCP for connecting AI assistants, and how to extend the WordPress plugin.
 
 ## Use the API
 
@@ -18,6 +14,11 @@ Organizer login and API key issuance on EventWatch are not open yet. Steps that 
 - [Handle 503 and Retry-After](/en/api/retries)
 - [Prevent duplicate creation](/en/api/idempotency)
 - [Compatibility promise](/en/api/compatibility)
+
+## Connect AI assistants (MCP)
+
+- [MCP connection and authentication](/en/mcp/authentication)
+- [MCP tools](/en/mcp/tools)
 
 ## Extend the WordPress plugin
 
