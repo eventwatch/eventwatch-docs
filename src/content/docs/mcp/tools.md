@@ -71,7 +71,7 @@ EventWatch の MCP サーバーは、次の 8 つのツールを持ちます。�
 
 ### `create_event_draft`
 
-必須は `title` だけです。
+いつも必須なのは `title` です。ほかに、`startAt`（日程が複数なら `occurrenceRanges`）と、オンライン開催でなければ `prefectureCode` が要ります。
 
 | 入力 | 型 | 内容 |
 | --- | --- | --- |
@@ -98,7 +98,8 @@ EventWatch の MCP サーバーは、次の 8 つのツールを持ちます。�
 `id`（UUID）が必須で、ほかの項目は `create_event_draft` と同じです。加えて `imageUploadId` を受けます（`""` で画像を外します）。
 
 - **送った項目だけが変わります。** `null` と省略は今の値のままです
-- 文字の項目は `""` で消します。`tagIds` は送ると全部を置き換え、`[]` で消します。`title` は消せません
+- `description`・`holdingPeriodNote`・`publisherEventPageUrl`・`imageUploadId` は `""` で消します。`tagIds` は送ると全部を置き換え、`[]` で消します。`title` は消せません
+- `venueName`・`venueAddress` は、片方だけ送ると今のもう片方と組み合わせます。会場を消すときは両方を `""` にします。名前か住所を変えると、送っていない `venueId`・`placeId`・`latitude`・`longitude` は外れます
 - 開始と終了が違うイベントの日付を移すときは、`startAt` と `closeAt` の両方を送ります
 - 日程が 2 組以上ある下書きに `startAt`・`closeAt` を送ると断られます。`occurrenceRanges` を送って全部を置き換えてください
 - 差し戻された下書きを直しても、差し戻しの状態と理由は残ります。主催者が確認に出すと消えます

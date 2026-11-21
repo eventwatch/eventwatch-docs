@@ -71,7 +71,7 @@ If the draft was sent back, the reason is included.
 
 ### `create_event_draft`
 
-Only `title` is required.
+`title` is always required. You also need `startAt` (or `occurrenceRanges` for multiple dates), and `prefectureCode` unless the event is online.
 
 | Input | Type | Meaning |
 | --- | --- | --- |
@@ -98,7 +98,8 @@ Only `title` is required.
 `id` (UUID) is required. The other inputs are the same as `create_event_draft`, plus `imageUploadId` (send `""` to remove the image).
 
 - **Only the fields you send change.** `null` and omitted fields keep their current values
-- Clear a text field with `""`. `tagIds` replaces all tags when sent; send `[]` to clear them. `title` can't be cleared
+- Clear `description`, `holdingPeriodNote`, `publisherEventPageUrl`, or `imageUploadId` with `""`. `tagIds` replaces all tags when sent; send `[]` to clear them. `title` can't be cleared
+- If you send only one of `venueName` and `venueAddress`, it is combined with the current value of the other. To clear the venue, send `""` for both. Changing the name or address removes `venueId`, `placeId`, `latitude`, and `longitude` unless you send them
 - To move the date of an event whose start and end differ, send both `startAt` and `closeAt`
 - Sending `startAt`/`closeAt` for a draft with two or more schedule pairs is rejected. Send `occurrenceRanges` to replace them all
 - Editing a sent-back draft keeps it sent back with its reason. Both clear when the organizer sends it for review
