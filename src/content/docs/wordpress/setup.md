@@ -5,10 +5,6 @@ description: EventWatch Events プラグインを WordPress に入れ、API キ�
 
 WordPress のサイトで公開したイベントを、そのまま EventWatch に載せられます。このページでは、プラグインを入れて最初のイベントを送るまでを順に進めます。
 
-:::caution[準備中です]
-プラグインは WordPress の公式ディレクトリへの公開を準備しています。このページの手順は、公開の後に使えるようになります。
-:::
-
 画面の名前は、プラグイン 0.1.0 の日本語の表示に合わせています。
 
 ## 用意するもの
@@ -25,6 +21,8 @@ WordPress のサイトで公開したイベントを、そのまま EventWatch �
 2. 「EventWatch Events」を探して、インストールして有効化します。
 
 管理画面のメニューに「イベント」が増えます。
+
+公式ディレクトリのページは [EventWatch Events](https://ja.wordpress.org/plugins/eventwatch/) です。
 
 ## 2. API キーを発行する
 

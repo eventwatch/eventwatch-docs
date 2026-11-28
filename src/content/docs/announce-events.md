@@ -37,7 +37,7 @@ EventWatch は、日本国内のイベントを地域・カテゴリー・日程
 | --- | --- | --- |
 | Web で投稿する | イベントを 1 件ずつ載せる方。はじめての方 | [イベントを載せる](https://eventwatch.app/post) |
 | AI アシスタントで下書きを作る | フライヤーや告知の文があり、入力を AI に任せたい方 | [AI アシスタントで下書きを作る](/ai-assistants/connect) |
-| WordPress プラグインで送る | 自分のサイトを WordPress で運営している方（プラグインは公開の準備中で、まだ使えません） | [WordPress プラグインをはじめる](/wordpress/setup) |
+| WordPress プラグインで送る | 自分のサイトを WordPress で運営している方 | [WordPress プラグインをはじめる](/wordpress/setup) |
 
 ### Web で投稿する
 
@@ -63,7 +63,7 @@ Claude や ChatGPT などの AI アシスタントを EventWatch につなぐと
 
 WordPress のサイトで公開したイベントを、そのまま EventWatch に送れます。送る専用のボタンはなく、サイトで公開すると送られます。サイトには、EventWatch の確認を待たずに出ます。
 
-**プラグインは WordPress の公式ディレクトリへの公開を準備していて、まだ使えません。** 公開の後は、先に Web で 1 件載せて主催者を作り、[WordPress プラグインをはじめる](/wordpress/setup) の手順で始めます。
+プラグイン「[EventWatch Events](https://ja.wordpress.org/plugins/eventwatch/)」は、WordPress の公式ディレクトリから入れます。先に Web で 1 件載せて主催者を作り、[WordPress プラグインをはじめる](/wordpress/setup) の手順で始めます。
 
 ## 載せた後
 
