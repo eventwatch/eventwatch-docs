@@ -37,7 +37,7 @@ Events whose date, time, and location are decided and that anyone can consider j
 | --- | --- | --- |
 | Post on the web | Listing events one at a time. First-time organizers | [Post an event](https://eventwatch.app/en/post) |
 | Create drafts with an AI assistant | Organizers who have a flyer or an announcement and want AI to fill in the details | [Create drafts with an AI assistant](/en/ai-assistants/connect) |
-| Send with the WordPress plugin | Organizers who run their own site on WordPress (the plugin is being prepared for release and isn't available yet) | [Get started with the WordPress plugin](/en/wordpress/setup) |
+| Send with the WordPress plugin | Organizers who run their own site on WordPress | [Get started with the WordPress plugin](/en/wordpress/setup) |
 
 ### Post on the web
 
@@ -63,7 +63,7 @@ How to connect is in [Create drafts with an AI assistant](/en/ai-assistants/conn
 
 Events you publish on your WordPress site can be sent to EventWatch as they are. There's no separate send button; publishing on your site sends the event. It appears on your site without waiting for EventWatch's check.
 
-**The plugin is being prepared for release in the WordPress plugin directory and isn't available yet.** After release, list one event on the web first to create your organizer, then follow [Get started with the WordPress plugin](/en/wordpress/setup).
+You install the plugin, [EventWatch Events](https://wordpress.org/plugins/eventwatch/), from the WordPress plugin directory. List one event on the web first to create your organizer, then follow [Get started with the WordPress plugin](/en/wordpress/setup).
 
 ## After listing
 

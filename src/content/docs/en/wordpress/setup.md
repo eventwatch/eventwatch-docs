@@ -5,10 +5,6 @@ description: How to install the EventWatch Events plugin on WordPress, set your 
 
 You can list the events you publish on your WordPress site on EventWatch as they are. This page walks you through installing the plugin and sending your first event.
 
-:::caution[Coming soon]
-The plugin is being prepared for release in the WordPress plugin directory. The steps on this page will become available after launch.
-:::
-
 Screen names on this page match the English display of plugin version 0.1.0.
 
 ## What you need
@@ -25,6 +21,8 @@ If you only want to manage events on your own site, you don't need an EventWatch
 2. Search for **EventWatch Events**, install it, and activate it.
 
 **Events** appears in the admin menu.
+
+The plugin's page in the directory is [EventWatch Events](https://wordpress.org/plugins/eventwatch/).
 
 ## 2. Issue an API key
 
